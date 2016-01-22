@@ -2,6 +2,11 @@
 
 This project is an implementation of the SSAO algorithm, done completely from scratch.
 
+To take it to the front - I made a video of it in action, where I show different kernel sizes, views and
+you can see, what this is all about, pretty good :)
+
+https://vimeo.com/152733656
+
 ## What is SSAO?
 
 Screen-space ambient occlusion basically adds some shading/occlusion of areas in the output image where a
