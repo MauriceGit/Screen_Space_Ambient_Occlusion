@@ -40,7 +40,7 @@ And the same view again with normal textures and colors. The ambient occlusion i
 I only tested an ran this simulation on a debian-based unix OS (Ubuntu, Mint, ...). It should run on any other machine as well but is not
 tested.
 
-### **System Requirements**
+### System Requirements
 
 The following system-attributes are required for running this simulation:
 
@@ -48,7 +48,7 @@ The following system-attributes are required for running this simulation:
 
 - Unix-Libraries: xorg-dev, mesa-common-dev and freeglut3-dev
 
-### **Running**
+### Running
 
 Compiling and running is then pretty straight forward.
 It should also work in windows and OSX, but is not tested.
@@ -60,7 +60,14 @@ In the root directory, do:
 While the simulation runs, you can move around (always looking to the center!) with your mouse (left-klick and move) and zoom in/out with your mouse (right click and move up/down).
 All other options for playing around with different kinds of the ambient occlusion (resizing the kernel, ...) are displayed when pressing "h" on your keyboard.
 
-## **More Screenshots**
+## Improvements
+
+Some possible improvements I could think of right now, are:
+
+- Implementation of a random kernel for each fragment (persistent) - Not square like the ones here.
+- Normalization of the occlusion-factor to not get parts blacked out completely.
+
+## More Screenshots
 
 So, here are some more screenshots, because screenshots are awesome :)
 
