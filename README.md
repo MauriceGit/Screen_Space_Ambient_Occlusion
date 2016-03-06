@@ -1,43 +1,41 @@
 # Screen Space Ambient Occlusion (SSAO)
 
-This project is an implementation of the SSAO algorithm, done completely from scratch.
+This project is an implementation of a SSAO algorithm, done completely from scratch.
 
-To take it to the front - I made a video of it in action, where I show different kernel sizes, views and
-you can see, what this is all about, pretty good :)
+In the following video, the SSAO implementation with different adjustments are demonstrated.
 
 https://vimeo.com/152733656
 
 ## What is SSAO?
 
-Screen-space ambient occlusion basically adds some shading/occlusion of areas in the output image where a
+Screen-space ambient occlusion adds some shading/occlusion of areas in the output image where a
 real occlusion is suspected. This is done by comparing depth values of the framebuffer just before rendering.
-If there are fragments, where pretty much all sides (computed over a local kernel) are closer to the viewer
-than the actual fragment, it is assumed, that those fragments are less illuminated then other, more exposed, areas.
-In this case, the fragment gets shaded.
+If there are fragments, where most sides (computed over a local kernel) are closer to the viewer,
+the actual fragment, it is assumed to be less illuminated than the surrounding fragments.
+In this case, the fragment is shaded.
 
 This algorithm runs only in screen space. So ignoring the complexity of the scene completely.
-That means, that the ambient occlusion is just as fast on a complete scenery than for a simple displayed triangle.
 
-But it also as to be noted, that it is not physically correct and also not always perfect.
-So depending on the viewer and camera position, different areas are occluded.
+Any SSAO algorithm is not physically correct and also not always perfect(Bleeding over neighbouring fragments).
+Dependent on the viewer and camera position, different areas can be occluded.
 
-Though not always looking perfect, it adds a very nice touch to the scenery and gives a lot more three dimensional
-impressions. It actually looks really good most of the time (Just my opinion).
+Though not always looking perfect, it adds a very nice touch to the scenery and gives a three dimensional
+impression.
 
-And adding this screen-space ambient occlusion to a complete game, game engine or random scenery is
-really simple. It is basically just one shader which needs to be used after everything else.
+By adding the SSAO fragment shader to a finished game or program, screen space ambient occlusion can be
+adjusted and implemented without changing or accessing the actual code.
 
-So here is a picture of just the final ambient occlusion without actually rendering any colors of the scene:
+The following picture shows the final ambient occlusion without rendering any colors of the scene:
 
 ![Just ambient occlusion](https://github.com/MauriceGit/Screen_Space_Ambient_Occlusion/blob/master/Screenshots/example5.png "Just ambient occlusion")
 
-And the same view again with normal textures and colors. The ambient occlusion is added:
+And the same view again with normal textures and colors. The ambient occlusion is added (multiplied to the fragment color):
 
 ![Ambient occlusion with normal colors](https://github.com/MauriceGit/Screen_Space_Ambient_Occlusion/blob/master/Screenshots/example6.png "Ambient occlusion with normal colors")
 
 ## Install && Run
 
-I only tested an ran this simulation on a debian-based unix OS (Ubuntu, Mint, ...). It should run on any other machine as well but is not
+I tested an ran this simulation on a debian-based Linux OS (Ubuntu, Mint, ...). It should run on other machines as well but is not
 tested.
 
 ### System Requirements
@@ -50,9 +48,8 @@ The following system-attributes are required for running this simulation:
 
 ### Running
 
-Compiling and running is then pretty straight forward.
-It should also work in windows and OSX, but is not tested.
-In the root directory, do:
+It should work on Windows and OSX, but is not tested.
+In the root directory, execute:
 
 - make
 - ./ambient_occlusion
@@ -64,8 +61,8 @@ All other options for playing around with different kinds of the ambient occlusi
 
 Some possible improvements I could think of right now, are:
 
-- Implementation of a random kernel for each fragment (persistent) - Not square like the ones here.
-- Normalization of the occlusion-factor to not get parts blacked out completely.
+- Implementation of a random kernel for each fragment (persistent) to minimize bleeding over neighbouring fragments.
+- Normalization of the occlusion-factor to not get fragments blacked out completely.
 
 ## More Screenshots
 
